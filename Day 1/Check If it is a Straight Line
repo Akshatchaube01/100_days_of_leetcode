@@ -1,0 +1,23 @@
+Problem Link:
+https://leetcode.com/problems/check-if-it-is-a-straight-line
+
+Solution:
+
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& vec) {
+        int n=vec.size();
+        int x1=vec[0][0];
+        int y1=vec[0][1];
+        int x2=vec[1][0];
+        int y2=vec[1][1];
+        for(int i=2;i<n; i++){
+            int x=vec[i][0];
+            int y=vec[i][1];
+            if((y-y1)*(x-x2)!=(y-y2)*(x-x1)){
+                return false;
+            } 
+        }
+        return true;
+    }
+};
