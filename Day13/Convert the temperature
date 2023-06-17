@@ -1,0 +1,15 @@
+Problem Statement:
+https://leetcode.com/problems/convert-the-temperature
+
+Problem Solution:
+class Solution {
+public:
+    vector<double> convertTemperature(double celsius) {
+        vector<double>temp;
+        double k = celsius + 273.15;
+        temp.push_back(k);
+        double f=(celsius*9/5)+32;
+        temp.push_back(f);
+        return temp;
+    }
+};
