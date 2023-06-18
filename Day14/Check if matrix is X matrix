@@ -1,0 +1,25 @@
+Problem Statement:
+https://leetcode.com/problems/check-if-matrix-is-x-matrix
+
+Problem Solution:
+class Solution {
+public:
+    bool checkXMatrix(vector<vector<int>>& grid) {
+        int n=grid.size();
+        int count=0;
+        int anticount=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i+j==n-1 || i==j){
+                    if(grid[i][j]!=0) count++;
+                    else return false;
+                }
+                else{
+                    if(grid[i][j]==0) count++;
+                    else return false;
+                }
+            }
+        }
+        return true;
+    }
+};
