@@ -1,0 +1,39 @@
+Problem Statement:
+https://leetcode.com/problems/most-frequent-even-element
+
+Problem Solution:
+class Solution {
+public:
+    int mostFrequentEven(vector<int>& nums) {
+        map<int,int>mapp;
+        vector<int>vec;
+        int count=0;
+        int countzero=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]%2==0 && nums[i]!=0){
+                count++;
+            }
+            if(nums[i]==0){
+                countzero++;
+            }
+        }
+        if(countzero==nums.size()){
+            return 0;
+        }
+        if(count==0){
+            return -1;
+        }
+        for(int i=0;i<nums.size();i++){
+            mapp[nums[i]]++;
+        }
+        int max=0;
+        int numb;
+        for(auto i:mapp){
+            if(max<i.second && i.first%2==0){
+                max=i.second;
+                numb=i.first;
+            }
+        }
+        return numb;
+    }
+};
