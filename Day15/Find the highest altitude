@@ -1,0 +1,21 @@
+Problem Statement:
+https://leetcode.com/problems/find-the-highest-altitude/
+
+Problem solution:
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
+        vector<int>vec;
+        vec.push_back(0);
+        int n=gain[0];
+        vec.push_back(n);
+        int num=gain.size();
+        for(int i=1;i<num;i++){
+            n=n+gain[i];
+            vec.push_back(n);
+        }
+        sort(vec.begin(),vec.end());
+        int ans=vec[vec.size()-1];
+        return ans;
+    }
+};
