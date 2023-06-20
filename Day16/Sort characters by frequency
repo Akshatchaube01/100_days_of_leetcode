@@ -1,0 +1,28 @@
+Problem Statement:
+https://leetcode.com/problems/sort-characters-by-frequency
+
+Problem Solution:
+class Solution {
+public:
+    string frequencySort(string s) {
+        map<char,int>mapp;
+        string str=" ";
+        for(int i=0;i<s.size();i++){
+            mapp[s[i]]++;
+        }
+        str="";
+        vector<pair<int,char>>vec_p;
+        for(auto i:mapp){
+            vec_p.push_back(make_pair(i.second,i.first));
+        }
+        sort(vec_p.begin(),vec_p.end());
+        
+        for(int i=vec_p.size()-1;i>=0;i--){
+            int num=vec_p[i].first;
+            while(num--){
+                str+=vec_p[i].second;
+            }
+        }
+        return str;
+    }
+};
