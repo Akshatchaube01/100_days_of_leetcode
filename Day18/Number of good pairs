@@ -1,0 +1,22 @@
+Problem Statement:
+https://leetcode.com/problems/number-of-good-pairs
+
+Problem Solution:
+class Solution {
+public:
+  int numIdenticalPairs(vector<int>& nums) {
+    unordered_map<int, int> counts;
+    unordered_map<int, int> frequency;
+    int ans = 0, curr = 0;
+
+    for(int i = 0; i < nums.size(); i++) {
+      if (counts.find(nums[i]) != counts.end()) {
+        ans += frequency[nums[i]] + 1;
+        frequency[nums[i]]++;
+      }
+      counts[nums[i]] = i;
+    }
+    
+    return ans;
+  }
+};
