@@ -1,0 +1,22 @@
+Problem Statement:
+https://leetcode.com/problems/sort-the-people/
+
+Problem Solution:
+class Solution {
+public:
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        vector<pair<int, string>> vec_p;
+        int N = names.size();
+        for(int i = 0; i < N; i++) {
+            vec_p.push_back(make_pair(heights[i], names[i]));
+        }
+
+        sort(vec_p.rbegin(), vec_p.rend());
+
+        vector<string> ans;
+        for(int i = 0; i < N; i++) {
+            ans.push_back(vec_p[i].second);
+        }
+        return ans;
+    }
+};
