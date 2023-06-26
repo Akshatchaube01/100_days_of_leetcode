@@ -1,0 +1,40 @@
+Problem Statement:
+https://leetcode.com/problems/fibonacci-number/
+
+Problem Solution:
+Method 1:
+Recursive method:
+
+class Solution {
+public:
+    int fib(int n) {
+        if(n==0) return 0;
+        if(n==1) return 1;
+        return fib(n-1)+fib(n-2);
+    }
+};
+
+Method 2:
+imperative Approach (Bottom-up DP):
+
+int fib(int N) {
+        if(N < 2) 
+            return N;
+    	int a = 0, b = 1, c = 0;
+        for(int i = 1; i < N; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return c;
+    }
+
+
+Method 3:
+Binet's Formula:
+ int fib(int N) {
+        double phi = (sqrt(5) + 1) / 2;     
+        return round(pow(phi, N) / sqrt(5));
+  }
+
