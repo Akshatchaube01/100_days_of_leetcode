@@ -1,0 +1,25 @@
+Problem Statement:
+https://leetcode.com/problems/maximum-number-of-balls-in-a-box
+
+Problem Solution:
+class Solution {
+public:
+    int countBalls(int l, int h) {
+        int ans = 0;
+        unordered_map<int,int>boxes;
+        
+        for(int i=l;i<=h;i++){
+            int temp=0, p=i;
+            while(p>0){
+                temp+=p%10;
+                p=p/10;
+            }
+            boxes[temp]++;
+        }
+        
+        for(auto x : boxes){
+            ans=max(ans, x.second);
+        }
+        return ans;
+    }
+};
