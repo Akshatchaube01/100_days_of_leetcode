@@ -1,0 +1,21 @@
+Problem Statement:
+https://leetcode.com/problems/alternating-digit-sum
+
+Problem Solution:
+class Solution {
+public:
+    int alternateDigitSum(int n) {
+        int size=log10(n)+1;
+        string str=to_string(n);
+        int sum=0;
+        for(int i=0;i<size;i++){
+            if(i%2==0){
+                sum+=str[i]-'0';
+            }
+            else{
+                sum-=str[i]-'0';
+            }
+        }
+        return sum;
+    }
+};
