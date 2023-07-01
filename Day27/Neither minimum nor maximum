@@ -1,0 +1,39 @@
+Problem Statement:
+https://leetcode.com/problems/neither-minimum-nor-maximum/
+
+Problem Solution:
+Using sets - Overkill:
+class Solution {
+public:
+    int findNonMinOrMax(vector<int>& nums) {
+        set<int>sett;
+        for(int i=0;i<nums.size();i++){
+            sett.insert(nums[i]);
+        }
+        if(sett.size()<=2){
+            return -1;
+        }
+        int count=0;
+        for(auto itr:sett){
+            count++;
+            if(count==2){
+                return itr;
+            }
+        }
+        return -1;
+    }
+};
+
+O(n):
+class Solution {
+public:
+    int findNonMinOrMax(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=nums[0] && nums[i]!=nums[nums.size()-1]){
+                return nums[i];
+            }
+        }
+        return -1;
+    }
+};
