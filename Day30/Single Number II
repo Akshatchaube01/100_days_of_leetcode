@@ -1,0 +1,33 @@
+Problem Statement:
+https://leetcode.com/problems/single-number-ii/
+
+Problem Solution:
+class Solution {
+Method 1(Brute Force) - This is the one that I used:
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        map<int,int>mapp;
+        for(int i=0;i<nums.size();i++){
+            mapp[nums[i]]++;
+        }
+        for(auto i:mapp){
+            if(i.second==1){
+                return i.first;
+            }
+        }
+        return -1;
+    }
+};
+
+Method 2( method): 
+public:
+int singleNumber(vector<int>& nums) {
+  int ones = 0, twos = 0;
+  for(int i = 0; i < nums.size(); i++){
+    ones = (ones ^ nums[i]) & ~twos;
+    twos = (twos ^ nums[i]) & ~ones;
+  }
+return ones;
+}
+};
