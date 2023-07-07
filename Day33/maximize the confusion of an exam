@@ -1,0 +1,38 @@
+Problem Statement:
+https://leetcode.com/problems/maximize-the-confusion-of-an-exam
+
+Problem Solution:
+class Solution {
+public:
+    int maxConsecutiveAnswers(string answerKey, int k) {
+        int size=answerKey.size(),count=0,left=0;
+        int answer=0;
+        for(int i=0;i<size;i++){
+            if(answerKey[i]=='F'){
+                count++;
+            }
+            while(count>k){
+                if(answerKey[left]=='F'){
+                    count--;
+                }
+                left++;
+            }
+            answer=max(answer,i-left+1);
+        }
+        count=0;
+        left=0;
+        for(int i=0;i<size;i++){
+            if(answerKey[i]=='T'){
+                count++;
+            }
+            while(count>k){
+                if(answerKey[left]=='T'){
+                    count--;
+                }
+                left++;
+            }
+            answer=max(answer,i-left+1);
+        }
+        return answer;
+    }
+};
