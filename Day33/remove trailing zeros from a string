@@ -1,0 +1,22 @@
+Problem Statement:
+https://leetcode.com/problems/remove-trailing-zeros-from-a-string
+
+Problem Solution:
+class Solution {
+public:
+    string removeTrailingZeros(string num) {
+        int size=num.size();
+        int new_size=size;
+        string new_str="";
+        for(int i=size-1;i>=0;i--){
+            if(num[i]=='0'){
+                new_size--;
+            }
+            else{
+                i=-1;
+            }
+        }
+        new_str=num.substr(0,new_size);
+        return new_str;
+    }
+};
