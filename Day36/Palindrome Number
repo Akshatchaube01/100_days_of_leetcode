@@ -1,0 +1,20 @@
+Problem Statement:
+https://leetcode.com/problems/palindrome-number/
+
+Problem Solution:
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        string str=to_string(x);
+        string str2="";
+        for(int i=str.size()-1;i>=0;i--){
+            str2+=str[i];
+        }
+        if(str==str2){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
